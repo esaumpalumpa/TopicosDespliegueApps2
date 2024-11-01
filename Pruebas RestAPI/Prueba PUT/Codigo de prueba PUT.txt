@@ -1,0 +1,11 @@
+response=$(curl -s -X PUT -H "Content-Type: application/json" \
+  -d '{"nombre": "Juan Actualizado", "edad": 21, "domicilio": "Calle Nueva 456", "telefono": "9876543210"}' \
+  http://localhost:5000/alumnos/0)
+
+if echo "$response" | grep -q "Alumno actualizado"; then
+  echo "Prueba PUT exitosa: Alumno actualizado correctamente"
+  exit 0
+else
+  echo "Error en prueba PUT: No se pudo actualizar el alumno"
+  exit 1
+fi

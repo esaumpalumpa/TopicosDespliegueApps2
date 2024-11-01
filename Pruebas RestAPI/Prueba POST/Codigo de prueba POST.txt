@@ -1,0 +1,11 @@
+response=$(curl -s -X POST -H "Content-Type: application/json" \
+  -d '{"nombre": "Juan", "edad": 20, "domicilio": "Calle Falsa", "telefono": "1234567890"}' \
+  http://localhost:5000/alumnos)
+
+if echo "$response" | grep -q "Alumno agregado"; then
+  echo "Alumno agregado correctamente"
+  exit 0
+else
+  echo "Error"
+  exit 1
+fi

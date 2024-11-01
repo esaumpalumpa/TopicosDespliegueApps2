@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Iniciando prueba de API"
+response=$(curl -s http://127.0.0.1:5000)
+echo "Respuesta del servicio: $response"
+if echo "$response" | grep -q 'Prueba 1 exitosa'; then
+  echo "Prueba exitosa"
+  exit 0
+else
+  echo "Prueba fallida"
+  exit 1
+fi

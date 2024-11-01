@@ -1,0 +1,9 @@
+response=$(curl -s -X GET http://localhost:5000/alumnos)
+
+if echo "$response" | grep -q '"nombre": "Juan"'; then
+  echo "Prueba GET exitosa: Lista de alumnos obtenida correctamente"
+  exit 0
+else
+  echo "Error en prueba GET: No se pudo obtener la lista de alumnos"
+  exit 1
+fi

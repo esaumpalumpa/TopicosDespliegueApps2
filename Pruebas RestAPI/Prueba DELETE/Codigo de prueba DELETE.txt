@@ -1,0 +1,9 @@
+response=$(curl -s -X DELETE http://localhost:5000/alumnos/0)
+
+if echo "$response" | grep -q "Alumno eliminado"; then
+  echo "Prueba DELETE exitosa"
+  exit 0
+else
+  echo "Error en prueba DELETE"
+  exit 1
+fi
